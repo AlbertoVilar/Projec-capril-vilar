@@ -2,7 +2,7 @@ package br.com.vilar.capril.model.entities;
 
 import jakarta.persistence.*;
 
-import javax.persistence.*;
+
 import java.util.List;
 
 @Entity

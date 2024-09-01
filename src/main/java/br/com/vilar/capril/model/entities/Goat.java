@@ -32,5 +32,6 @@ public class Goat {
     @OneToMany(mappedBy = "goat")
     private List<Relationship> relationships;
 
-    // Getters and Setters
+    @OneToMany(mappedBy = "goat", cascade = CascadeType.ALL, orphanRemoval = true)
+   private List<Event> events;
 }

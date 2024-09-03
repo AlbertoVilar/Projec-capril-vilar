@@ -2,7 +2,6 @@ package br.com.vilar.capril.model.entities;
 
 import jakarta.persistence.*;
 
-
 import java.util.List;
 
 @Entity
@@ -11,20 +10,24 @@ public class GoatFarm {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
     private String registrationNumber;
-
-    @OneToOne
-    @JoinColumn(name = "owner_id")
-    private Owner owner;
 
     @OneToOne
     @JoinColumn(name = "address_id")
     private Address address;
 
-    @OneToMany(mappedBy = "goatFarm")
+    @ManyToOne
+    @JoinColumn(name = "owner_id")
+    private Owner owner;
+
+    @OneToMany(mappedBy = "goatFarm", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Goat> goats;
+
+    public GoatFarm() {
+        super();
+    }
 
     // Getters and Setters
 }
-

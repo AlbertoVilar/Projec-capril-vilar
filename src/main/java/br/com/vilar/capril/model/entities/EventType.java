@@ -5,7 +5,8 @@ package br.com.vilar.capril.model.entities;
         BIRTH,
         BREEDING,
         HEALTH_TREATMENT,
-        DEATH
+        DEATH,
+        MAINTENANCE;
     }
 
 

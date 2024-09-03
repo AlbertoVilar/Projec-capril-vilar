@@ -25,6 +25,9 @@ public class Goat {
     private String toe;
     private Date birthDate;
 
+    @Enumerated(EnumType.STRING)  // Esta anotação é importante para que o JPA saiba como persistir o Enum
+    private EventType eventType;
+
     @ManyToOne
     @JoinColumn(name = "goatFarm_id")
     private GoatFarm goatFarm;
@@ -34,4 +37,6 @@ public class Goat {
 
     @OneToMany(mappedBy = "goat", cascade = CascadeType.ALL, orphanRemoval = true)
    private List<Event> events;
+
+
 }

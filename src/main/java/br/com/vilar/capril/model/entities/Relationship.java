@@ -17,5 +17,5 @@ public class Relationship {
     @JoinColumn(name = "goat_id")
     private Goat goat;
 
-    // Getters and Setters
+
 }

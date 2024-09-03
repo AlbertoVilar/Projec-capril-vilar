@@ -2,8 +2,8 @@ package br.com.vilar.capril.model.entities;
 
 import jakarta.persistence.*;
 
-
 import java.util.List;
+
 
 @Entity
 @Table(name = "owners")
@@ -14,16 +14,16 @@ public class Owner {
     private String name;
     private String email;
 
-    @OneToOne(mappedBy = "owner")
-    private GoatFarm goatFarm;
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Address> addresses;
 
-    @OneToOne
-    @JoinColumn(name = "address_id")
-    private Address address;
-
-    @OneToMany(mappedBy = "owner")
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Phone> phones;
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<GoatFarm> goatFarms;
 
     // Getters and Setters
 }
+
 
